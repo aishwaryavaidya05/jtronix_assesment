@@ -131,22 +131,29 @@ Interactive docs are available at http://127.0.0.1:8000/docs while the API is ru
 
 ![Swagger overview](screenshots/swagger-overview.png)
 
-**GET /employees (with department filter)**
+**GET /employees?department=Engineering** (department filter, `200`)
 
-![GET employees](screenshots/swagger-get-employees.png)
+![GET employees with filter](screenshots/swagger-get-employees-filter.png)
 
-**POST /employees**
+**GET /employees/{id}** (existing employee, `200`)
+
+![GET employee by ID](screenshots/swagger-get-employee-by-id.png)
+
+**GET /employees/{id}** (employee does not exist, `404`)
+
+![GET employee not found](screenshots/swagger-get-employee-not-found.png)
+
+**POST /employees** (create employee, `201`)
 
 ![POST employee](screenshots/swagger-post-employee.png)
 
-**PATCH /employees/{id}/status**
+**PATCH /employees/{id}/status** (request)
 
-![PATCH status](screenshots/swagger-patch-status.png)
+![PATCH status request](screenshots/swagger-patch-status-request.png)
 
-**Error response (404 / 422)**
+**PATCH /employees/{id}/status** (response, `200`)
 
-![Error response](screenshots/swagger-error.png)
-
+![PATCH status response](screenshots/swagger-patch-status-response.png)
 
 ## Status
 
