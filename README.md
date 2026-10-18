@@ -126,7 +126,6 @@ curl -X PATCH http://127.0.0.1:8000/employees/99/status \
 ## Swagger documentation screenshots
 
 Interactive docs are available at http://127.0.0.1:8000/docs while the API is running.
-Add screenshots to the `screenshots/` folder using the file names below.
 
 **Overview of all endpoints**
 
@@ -148,19 +147,6 @@ Add screenshots to the `screenshots/` folder using the file names below.
 
 ![Error response](screenshots/swagger-error.png)
 
-## Additional good practices (beyond the stated requirements)
-
-- **Swagger / OpenAPI docs** generated automatically at `/docs` (and ReDoc at `/redoc`).
-- **Postman collection** (`Employee_API.postman_collection.json`) with success and error cases.
-- **Proper HTTP status codes:** `201 Created` for POST, `404` for unknown IDs, `422` for invalid input.
-- **Whitespace-only input rejected:** a name or department like `"   "` is treated as empty. Values are also trimmed before saving.
-- **Case-insensitive department filter:** `?department=engineering` matches `Engineering`.
-- **Status as an Enum:** only `Active` or `Inactive` are accepted, enforced by the type, so no manual checks are needed.
-- **Separate request and response models:** `EmployeeCreate`, `StatusUpdate` and `Employee`, so clients cannot set the ID or status when creating an employee.
-- **Typed response models** keep the output consistent and documented in Swagger.
-- **Clear error messages**, e.g. `Employee with id 99 not found`.
-- **Single lookup helper** (`find_employee`) shared by the GET and PATCH endpoints to avoid duplicated code.
-- **Virtual environment and `.gitignore`** so dependencies and cache files are not committed.
 
 ## Status
 
