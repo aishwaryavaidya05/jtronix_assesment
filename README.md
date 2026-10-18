@@ -41,119 +41,37 @@ Errors: `404` for unknown ID, `422` for empty name/department or an invalid stat
 
 A Postman collection is included: `Employee_API.postman_collection.json` (import it in Postman; base URL is the `base_url` collection variable).
 
-## Example requests and responses
+## Swagger screenshots
 
-**GET all**
-```bash
-curl http://127.0.0.1:8000/employees
-```
-```json
-[
-  {"id": 1, "name": "Rahul Sharma", "department": "Engineering", "status": "Active"},
-  {"id": 2, "name": "Priya Patel", "department": "HR", "status": "Active"},
-  {"id": 3, "name": "Amit Verma", "department": "Engineering", "status": "Inactive"}
-]
-```
+Interactive docs: http://127.0.0.1:8000/docs
+
+**Overview**
+
+![Overview](screenshots/swagger-overview.png)
+
+**GET with department filter**
+
+![GET with filter](screenshots/swagger-get-employees.png)
 
 **GET by ID**
-```bash
-curl http://127.0.0.1:8000/employees/1
-```
-```json
-{"id": 1, "name": "Rahul Sharma", "department": "Engineering", "status": "Active"}
-```
 
-**GET missing ID** → `404`
-```bash
-curl http://127.0.0.1:8000/employees/99
-```
-```json
-{"detail": "Employee with id 99 not found"}
-```
+![GET by ID](screenshots/swagger-get-employees-by-id.png)
 
-**Filter by department**
-```bash
-curl "http://127.0.0.1:8000/employees?department=Engineering"
-```
-```json
-[
-  {"id": 1, "name": "Rahul Sharma", "department": "Engineering", "status": "Active"},
-  {"id": 3, "name": "Amit Verma", "department": "Engineering", "status": "Inactive"}
-]
-```
+**GET unknown ID (404)**
 
-**POST create** → `201`
-```bash
-curl -X POST http://127.0.0.1:8000/employees \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Neha Singh", "department": "Sales"}'
-```
-```json
-{"id": 4, "name": "Neha Singh", "department": "Sales", "status": "Active"}
-```
+![GET not found](screenshots/swagger-get-employees-error.png)
 
-**POST with empty name** → `422`
-```bash
-curl -X POST http://127.0.0.1:8000/employees \
-  -H "Content-Type: application/json" \
-  -d '{"name": "  ", "department": "Sales"}'
-```
+**POST create (201)**
 
-**PATCH status**
-```bash
-curl -X PATCH http://127.0.0.1:8000/employees/2/status \
-  -H "Content-Type: application/json" \
-  -d '{"status": "Inactive"}'
-```
-```json
-{"id": 2, "name": "Priya Patel", "department": "HR", "status": "Inactive"}
-```
+![POST](screenshots/swagger-post-employee.png)
 
-**PATCH invalid status** → `422`
-```bash
-curl -X PATCH http://127.0.0.1:8000/employees/2/status \
-  -H "Content-Type: application/json" \
-  -d '{"status": "Retired"}'
-```
+**PATCH status: request**
 
-**PATCH unknown ID** → `404`
-```bash
-curl -X PATCH http://127.0.0.1:8000/employees/99/status \
-  -H "Content-Type: application/json" \
-  -d '{"status": "Active"}'
-```
+![PATCH request](screenshots/swagger-patch-status-part1.png)
 
-## Swagger documentation screenshots
+**PATCH status: response**
 
-Interactive docs are available at http://127.0.0.1:8000/docs while the API is running.
-
-**Overview of all endpoints**
-
-![Swagger overview](screenshots/swagger-overview.png)
-
-**GET /employees?department=Engineering** (department filter, `200`)
-
-![GET employees with filter](screenshots/swagger-get-employees-filter.png)
-
-**GET /employees/{id}** (existing employee, `200`)
-
-![GET employee by ID](screenshots/swagger-get-employee-by-id.png)
-
-**GET /employees/{id}** (employee does not exist, `404`)
-
-![GET employee not found](screenshots/swagger-get-employee-not-found.png)
-
-**POST /employees** (create employee, `201`)
-
-![POST employee](screenshots/swagger-post-employee.png)
-
-**PATCH /employees/{id}/status** (request)
-
-![PATCH status request](screenshots/swagger-patch-status-request.png)
-
-**PATCH /employees/{id}/status** (response, `200`)
-
-![PATCH status response](screenshots/swagger-patch-status-response.png)
+![PATCH response](screenshots/swagger-patch-status-part2.png)
 
 ## Status
 
