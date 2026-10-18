@@ -45,34 +45,32 @@ A Postman collection is included: `Employee_API.postman_collection.json` (import
 
 Interactive docs: http://127.0.0.1:8000/docs
 
-**Overview**
+**Swagger Overview**
 
 ![Overview](screenshots/swagger-overview.png)
 
-**GET with department filter**
+**GET using department filter**
 
 ![GET with filter](screenshots/swagger-get-employees.png)
 
-**GET by ID**
+**GET using ID**
 
 ![GET by ID](screenshots/swagger-get-employees-by-id.png)
 
-**GET unknown ID (404)**
+**GET unknown ID; Error Response**
 
 ![GET not found](screenshots/swagger-get-employees-error.png)
 
-**POST create (201)**
+**POST: Create new employee**
 
 ![POST](screenshots/swagger-post-employee.png)
 
-**PATCH status: request**
+**PATCH (updating employee status): request**
 
 ![PATCH request](screenshots/swagger-patch-status-part1.png)
 
-**PATCH status: response**
+**PATCH (updating employee status): response**
 
 ![PATCH response](screenshots/swagger-patch-status-part2.png)
-
-## Status
 
 All requirements in 1.1, 1.2 and 1.3 are implemented. Nothing is incomplete.
