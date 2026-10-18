@@ -4,7 +4,7 @@ Simple Employee API with in-memory storage (no database). Covers questions 1.1, 
 
 ## Run
 
-1. Create and activate a virtual environment:
+1. Create and activate a virtual environment: (Optional but good practice)
 
 ```bash
 python -m venv venv
